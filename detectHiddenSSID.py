@@ -7,7 +7,7 @@ hiddenBSSID = list()
 
 def listHidden(frame):
     # if it is a beacon and the SSID is not broadcasted
-    if frame.haslayer(Dot11Beacon) and frame.info == b'\x00\x00\x00\x00\x00\x00\x00\x00\x00':
+    if frame.haslayer(Dot11Beacon) and frame.info == b'\x00'*9:
         # if the BSSID is not already in our list, we add it
         if frame.addr3 not in hiddenBSSID:
             print("Adding BSSID: " + frame.addr3 + " to list of Hidden BSSID!")
